@@ -1,0 +1,19 @@
+bin/
+obj/
+.idea/
+.vs/
+cmake-build-*/
+BenchmarkDotNet.Artifacts/
+TestResults/
+__pycache__/
+
+# NNUE network parameters are downloaded separately.
+*.nnue
+
+# Unity working copies and generated Players; source packages are exported outside Git.
+Library/
+Temp/
+Logs/
+UserSettings/
+Builds/
+MemoryCaptures/

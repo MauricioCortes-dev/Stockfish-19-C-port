@@ -1,0 +1,7 @@
+{
+  "name": "Stockfish-sf_19_CSharp_Library",
+  "rootNamespace": "Stockfish_sf_19_CSharp_Library",
+  "allowUnsafeCode": true,
+  "autoReferenced": false,
+  "noEngineReferences": true
+}

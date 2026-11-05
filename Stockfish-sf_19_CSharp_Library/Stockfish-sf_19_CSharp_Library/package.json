@@ -1,0 +1,9 @@
+{
+  "name": "com.mauriciocortes.stockfish.core",
+  "version": "19.0.0",
+  "displayName": "Stockfish 19 Core",
+  "description": "Source-only C# 8 / .NET Standard 2.1 Stockfish 19 engine. GPL-3.0-or-later.",
+  "unity": "6000.3",
+  "unityRelease": "26f1",
+  "license": "GPL-3.0-or-later"
+}

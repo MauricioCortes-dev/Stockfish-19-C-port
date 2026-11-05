@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <RootNamespace>Stockfish_sf_19_CSharp_Library</RootNamespace>
+        <Nullable>enable</Nullable>
+        <LangVersion>8.0</LangVersion>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AssemblyMetadata Include="PortingLanguageVersion" Value="8.0" />
+        <AssemblyMetadata Include="PortingTargetFramework" Value="netstandard2.1" />
+        <AssemblyMetadata Include="PortingSdkVersion" Value="$(NETCoreSdkVersion)" />
+        <AssemblyMetadata Include="PortingConfiguration" Value="$(Configuration)" />
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(StockfishNoTablebases)' == 'true'">
+        <DefineConstants>$(DefineConstants);STOCKFISH_NO_TABLEBASES</DefineConstants>
+    </PropertyGroup>
+
+    <!-- Exercises the same optional-intrinsics exclusion as Unity ENABLE_IL2CPP.
+         This build is a portability check, not evidence of an IL2CPP Player. -->
+    <PropertyGroup Condition="'$(StockfishAotSafe)' == 'true'">
+        <DefineConstants>$(DefineConstants);STOCKFISH_AOT_SAFE</DefineConstants>
+    </PropertyGroup>
+
+    <!-- Optional packaging input; the network itself is never committed. -->
+    <ItemGroup Condition="'$(StockfishEmbeddedNetworkFile)' != ''">
+        <EmbeddedResource Include="$(StockfishEmbeddedNetworkFile)" LogicalName="Stockfish.NNUE.Default" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Board\" />
+        <Folder Include="MoveGeneration\" />
+        <Folder Include="Search\" />
+        <Folder Include="Evaluation\" />
+        <Folder Include="Evaluation\NNUE\" />
+        <Folder Include="Evaluation\NNUE\Features\" />
+        <Folder Include="Evaluation\NNUE\Layers\" />
+        <Folder Include="Tablebases\" />
+        <Folder Include="Tablebases\Syzygy\" />
+        <Folder Include="Infrastructure\" />
+        <Folder Include="Infrastructure\Threading\" />
+        <Folder Include="Infrastructure\Memory\" />
+        <Folder Include="Diagnostics\" />
+    </ItemGroup>
+
+</Project>
